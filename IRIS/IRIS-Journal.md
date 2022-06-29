@@ -3,7 +3,7 @@
 - 熟悉filament代码  
   - visual studio 配置运行filament，断点调试  DONE
 
-- 为什么要封装一层，为什么不能直接用filament？
+- 为什么要封装一层，为什么不能直接用filament？  只使用了filament 的材质、渲染部分； DONE
 - 桥接模式：分离抽象与实现，可分别单独变化，沿两个方向变化互不影响； DONE
 
 6/25
@@ -14,5 +14,26 @@
 
 6/27
 
+- filament 动画代码走读  DONE
+- piccolo 动画代码走读  
+
+6/28
+
+- 调试IRISEngine
+  - 场景如何管理的;没有场景管理
+  - 如何查看log ; logcat
+
+6/29
+
+- 加载FBX 模型文件  
+- 梳理Piccolo动画系统
+
+6/20
+
+- 实现骨骼动画
 - 
+
+
+
+
 
