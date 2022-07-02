@@ -25,7 +25,10 @@
 
 6/29
 
-- 加载FBX 模型文件  
+- 加载FBX 模型文件
+  - 加载骨骼数据
+  - 加载动画数据
+
 - 梳理Piccolo动画系统
 
 6/30
@@ -35,6 +38,23 @@
 - https://godbolt.org/
 
 
+
+7/1
+
+- 调研ozz-animation,基本满足业务要求
+  - 支持骨骼蒙皮动画
+  - 支持动画混合
+    - 二维混合
+    - Additive Blending
+    - Partial Blending
+
+  - 支持IK 
+  - 支持Attach
+  - 动画数据压缩、优化
+  - 简单的动画控制：播放、暂停、调整时间、调整速度
+  - 线程安全
+
+- ozz-animation作为第三方库引入
 
 
 

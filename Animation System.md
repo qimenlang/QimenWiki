@@ -7,12 +7,16 @@
    - 动画混合
      - 一维混合(两个关键帧数据插值得到普通帧)
      - 二维混合(走到跑两个动作切换时，中间一个时间段需要对两个动作进行插值)
+     - 加法混合：Additive blending is different from normal blending because it does not interpolate from a pose to an other. Instead it combines poses, meaning the two animations can be seen at the same time. 
+     - 
 2. 动画控制（需参考RealityKit、Tween等工具，待继续讨论拆分）
    - 动画编辑：在时间线上对物体的transform进行曲线编辑等
    - 动画切换：状态机
 3. 待定需求
    - MorphTarget (主要用于表情等对细节要求高的动画)
    - IK (在手抓握不同物体时，手的形状适应物体的大小)
+   - Attach：The idea is to get the joint matrix from the model-space matrices array (for the selected "hand" joint), and use this matrix to build transformation matrix of the attached object (the "sword").
+4. 
 
 # 动画系统梳理
 
