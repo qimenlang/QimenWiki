@@ -12,5 +12,15 @@ CMake使用手册
 
     通过编译选项的方式，将cmake中的变量传到编译的程序中；
 
-5. 
+5. 編譯選項 cppFlags 全局性质
+
+    - -Wall 打開所有GCC警告，詳細查錯
+
+    - -Werror 將所有警告當成錯誤處理
+
+    - -Wextra 
+
+    - add_compile_options(-Wno-xxx)
+
+6. 
 

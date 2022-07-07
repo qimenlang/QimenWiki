@@ -47,16 +47,30 @@
     - 二维混合
     - Additive Blending
     - Partial Blending
-
   - 支持IK 
   - 支持Attach
   - 动画数据压缩、优化
   - 简单的动画控制：播放、暂停、调整时间、调整速度
   - 线程安全
-
 - ozz-animation作为第三方库引入
 
-7/2
+7/4
+
+- 完成ozz-animation 引入
+  - android studio gradle换成cmake 18.1 ndk升级到24
+
+- 引擎中实现骨骼动画效果
+
+- 对比filament 的动画合ozz动画库
+
+7/5
+
+- ozz-animation引入  DONE
+
+7/6
+
+- FBX数据导入
+- iris中驱动一个骨骼，实现蒙皮动画效果
 
 
 

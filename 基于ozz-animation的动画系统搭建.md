@@ -59,3 +59,25 @@
      - 动画切换
    - 动画资源管理
    - 混合：动画树
+
+# 基于ozz-animation的动画系统搭建
+
+1. 动画系统知识点梳理
+2. ozz库技术要点梳理
+   - Data orentied Develop
+   - PlaybackController 控制动画播放时间
+   - SamplingJob 对动画资产的某一帧进行采样，得到pose数据
+     - Context :存储一些中间计算结果
+       - 帧的一致性？？？
+       - SOA ???
+
+   - 数学库优势？
+
+3. 整理搭建思路
+   - 蒙皮模块放在filament，ozz提供数据驱动
+   - ECS架构，Animation Component
+   - 辅助效果绘制
+   - UI界面及效果开关
+
+4. 在知乎上直接出一篇基于ozz的动画系统搭建专栏
+
