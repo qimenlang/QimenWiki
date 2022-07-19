@@ -72,6 +72,42 @@
 - FBX数据导入
 - iris中驱动一个骨骼，实现蒙皮动画效果
 
+7/7-9
+
+- 参照gltf数据填充renderable过程，完成fbx数据填充renderable过程
+
+7/10 -12
+
+- filament库拉一个分支，集成assimp库，从assimp导入fbx文件，完成数据填充，实现正确骨骼动画；
+- 在filament分支上，继续集成ozz-animation库，替换骨骼动画解算过程；
+- ozz-animation提供的工具fbx2ozz在linux环境上不能用，在windows环境上转换可能是
+
+7/13
+
+- assimp 导入fbx数据到ozz-animation
+- 经fbs2ozz工具转换的ozz格式数据，在ozz-animation中解算错误的问题
+
+7/18
+
+- 在ozz sample中实现assimp导入fbx的全部蒙皮骨骼动画
+  - animation的track如何与骨骼joint对应？  DONE
+  - Mesh 渲染
+- iris中蒙皮动画无法通过setbones接口驱动问题
+  - skinning信息是否正确设置？
+  - setbones的数据是否应该还有乘以逆绑定矩阵的计算过程？
+  - 走读filament的渲染流程没能走通
+
+
+7/19
+
+- 
+
+
+
+
+
+
+
 
 
 

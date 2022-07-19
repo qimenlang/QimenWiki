@@ -63,6 +63,21 @@
 # 基于ozz-animation的动画系统搭建
 
 1. 动画系统知识点梳理
+   - 插值
+     - translation & scale :使用线性插值 c = a（1-t）+b(t)
+     - rotation :
+       - 欧拉角 ： 直接对欧拉角进行线性插值，得到的结果是非线性的，还可能会处罚万向节死锁；
+       - 四元数 ： 提供 球面插值 SLerp(Spherical Interpolation），可以实现线性插值；[NLerp？？？]
+     
+   - 逆绑定矩阵：
+   
+     - **This matrix describes the position of the mesh in the local space of this bone when the skeleton was bound.** Thus it can be used directly to determine a desired vertex position, given the world-space transform of the bone when animated, and the position of the vertex in mesh space.
+     - **描述的是顶点在局部骨骼坐标系下的偏移，用于将顶点从模型坐标系转换到局部/骨骼坐标系**
+   
+     ![Mesh Space](https://learnopengl.com/img/guest/2020/skeletal_animation/mesh_space.png)
+   
+     ![Bone Space](https://learnopengl.com/img/guest/2020/skeletal_animation/bone_space.png)
+   
 2. ozz库技术要点梳理
    - Data orentied Develop
    - PlaybackController 控制动画播放时间
@@ -72,12 +87,12 @@
        - SOA ???
 
    - 数学库优势？
-
+   
 3. 整理搭建思路
    - 蒙皮模块放在filament，ozz提供数据驱动
    - ECS架构，Animation Component
    - 辅助效果绘制
    - UI界面及效果开关
-
+   
 4. 在知乎上直接出一篇基于ozz的动画系统搭建专栏
 
