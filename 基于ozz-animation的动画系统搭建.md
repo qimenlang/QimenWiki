@@ -16,7 +16,13 @@
    - MorphTarget (主要用于表情等对细节要求高的动画)
    - IK (在手抓握不同物体时，手的形状适应物体的大小)
    - Attach：The idea is to get the joint matrix from the model-space matrices array (for the selected "hand" joint), and use this matrix to build transformation matrix of the attached object (the "sword").
-4. 
+4. 动画节奏控制
+   - 缓入缓出
+   - 贝塞尔曲线控制
+
+5. 动画事件触发
+6. 内置手势动画
+7. 
 
 # 动画系统梳理
 
@@ -44,10 +50,24 @@
    - 
 3. 顶点动画
 4. 动画混合
-   - 一维混合
+   - 线性插值混合
+     - 求两个骨骼姿态的中间姿态：对骨骼的每个关节的局部姿势（SQT）进行线性插值，局部姿态是指父关节的局部空间；
+     - 应用
+       - 在时间轴上，求两个关键帧的中间插值帧
+       - 淡入淡出：两个动画clip在时间轴上适当地重合，流畅地从A动画过渡到B动画
+         - 平滑过渡:
+         - 冻结过渡:
+       - 核心姿势：不用混合，A动作的最后姿势能匹配后续片段的首个姿势，该姿势为核心姿势；
    - 二维混合
+     - 简单的二维混合是三个一维混合，用到4个clip
+     - 三角剖分+三角中心坐标得到混合因子的二维混合
    - Masked Blending
+     - 把某些关节的混合因子设为0，来掩盖掉
+     - 会造成不自然的动作
+       - 相连关节的混合因子突兀地改变，会导致身体一部分动作与另一部分动作分离，不协调；可以在几个临近关节上逐渐改变混合因子；
    - Additive Blending
+     - 区别片段：两段正常动画的区别，**存储了一个姿势变化至另一个姿势所需的改变**，区别动画可以被加进普通的动画片段，以产生一些有趣的姿势和动作变化；
+     - 
 5. 动画状态机
 6. 动画混合树
    - 动画对齐：两个动画在标准化时间(1s)的相同时间点上对齐；
@@ -70,29 +90,81 @@
        - 四元数 ： 提供 球面插值 SLerp(Spherical Interpolation），可以实现线性插值；[NLerp？？？]
      
    - 逆绑定矩阵：
-   
+
      - **This matrix describes the position of the mesh in the local space of this bone when the skeleton was bound.** Thus it can be used directly to determine a desired vertex position, given the world-space transform of the bone when animated, and the position of the vertex in mesh space.
      - **描述的是顶点在局部骨骼坐标系下的偏移，用于将顶点从模型坐标系转换到局部/骨骼坐标系**
-   
+
      ![Mesh Space](https://learnopengl.com/img/guest/2020/skeletal_animation/mesh_space.png)
-   
+
      ![Bone Space](https://learnopengl.com/img/guest/2020/skeletal_animation/bone_space.png)
-   
+
 2. ozz库技术要点梳理
    - Data orentied Develop
    - PlaybackController 控制动画播放时间
    - SamplingJob 对动画资产的某一帧进行采样，得到pose数据
-     - Context :存储一些中间计算结果
-       - 帧的一致性？？？
-       - SOA ???
-
+     
    - 数学库优势？
-   
+
 3. 整理搭建思路
    - 蒙皮模块放在filament，ozz提供数据驱动
    - ECS架构，Animation Component
    - 辅助效果绘制
    - UI界面及效果开关
-   
-4. 在知乎上直接出一篇基于ozz的动画系统搭建专栏
+
+4. 动画系统架构
+
+   1. 动画管道 (Animation Pipeline)
+      - 对包含动画的物体，动画管道为其取得一个或多个动画片段及对应的混合因子作为输入，混合后计算得到的骨骼姿态作为输出；
+
+      - 后处理钩子：留给IK及物理动画对骨骼动画进行修正；
+
+   2. 动画状态机（Action State Machine）
+      - 提供状态驱动的动画接口
+      - 状态机确保角色能从一个状态平滑地过渡到另一个状态
+      - 如果身体的不同部分需要做不同、独立的事情，例如边跑边瞄准边开火，可以通过状态层使用多个独立的状态机控制角色；
+
+   3. 动画控制器  (Animation Controller)
+      - 管理角色行为模式、封装动画相关代码
+
+5. 其他
+
+   - 蒙皮矩阵调色板？？
+
+6. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
