@@ -84,24 +84,40 @@
 
 7/13
 
-- assimp 导入fbx数据到ozz-animation
-- 经fbs2ozz工具转换的ozz格式数据，在ozz-animation中解算错误的问题
+- assimp 导入fbx数据到ozz-animation DONE
+- 经fbs2ozz工具转换的ozz格式数据，在ozz-animation中解算错误的问题  DONE
 
 7/18
 
-- 在ozz sample中实现assimp导入fbx的全部蒙皮骨骼动画
-  - animation的track如何与骨骼joint对应？  DONE
-  - Mesh 渲染
-- iris中蒙皮动画无法通过setbones接口驱动问题
-  - skinning信息是否正确设置？
-  - setbones的数据是否应该还有乘以逆绑定矩阵的计算过程？
-  - 走读filament的渲染流程没能走通
+- 在ozz sample中实现assimp导入fbx的全部蒙皮骨骼动画 DONE
+  - animation的track如何与骨骼joint对应？  
+  - Mesh 渲染 
+- iris中蒙皮动画无法通过setbones接口驱动问题 DONE
 
+7/22
 
-7/19
+- 动画系统搭建
+  - 骨骼动画&Blend Shape动画&物理模拟动画
+  - 混合：一维、二维、masked、加法等混合
+  - Attachment & User channel
+  - 后处理：Two Bone IK、Aim IK
+  - 状态机&混合树
+    - 状态数据采用配置文件的方式
 
-- 
+  - 动画控制
 
+7/25
+
+- 实现动画状态机
+  - 切换动画clip
+  - 动画平滑过渡
+- 动画资源管理
+  - 使用统一骨骼资源  
+  - 在ozz sample中转换骨骼逆绑定矩阵
+- 模型
+  - unity quest2 demo中手势动作导出
+- 动画系统测试
+  - 各种FBX模型文件导入测试
 
 
 
