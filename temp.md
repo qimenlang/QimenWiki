@@ -1,135 +1,52 @@
-joint0 mixamorig:Hips
-joint1 mixamorig:Spine
-joint2 mixamorig:Spine1
-joint3 mixamorig:Spine2
-joint4 mixamorig:Neck
-joint5 mixamorig:Head
-joint6 
-joint7 
-joint8 
-joint9 mixamorig:LeftShoulder
-joint10 mixamorig:LeftArm
-joint11 mixamorig:LeftForeArm
-joint12 mixamorig:LeftHand
-joint13 mixamorig:LeftHandThumb1
-joint14 mixamorig:LeftHandThumb2
-joint15 mixamorig:LeftHandThumb3
-joint16 
-joint17 mixamorig:LeftHandIndex1
-joint18 mixamorig:LeftHandIndex2
-joint19 mixamorig:LeftHandIndex3
-joint20 
-joint21 mixamorig:LeftHandMiddle1
-joint22 mixamorig:LeftHandMiddle2
-joint23 mixamorig:LeftHandMiddle3
-joint24 
-joint25 mixamorig:LeftHandRing1
-joint26 mixamorig:LeftHandRing2
-joint27 mixamorig:LeftHandRing3
-joint28 
-joint29 mixamorig:LeftHandPinky1
-joint30 mixamorig:LeftHandPinky2
-joint31 mixamorig:LeftHandPinky3
-joint32 
-joint33 mixamorig:RightShoulder
-joint34 mixamorig:RightArm
-joint35 mixamorig:RightForeArm
-joint36 mixamorig:RightHand
-joint37 mixamorig:RightHandPinky1
-joint38 mixamorig:RightHandPinky2
-joint39 mixamorig:RightHandPinky3
-joint40 
-joint41 mixamorig:RightHandRing1
-joint42 mixamorig:RightHandRing2
-joint43 mixamorig:RightHandRing3
-joint44 
-joint45 mixamorig:RightHandMiddle1
-joint46 mixamorig:RightHandMiddle2
-joint47 mixamorig:RightHandMiddle3
-joint48 
-joint49 mixamorig:RightHandIndex1
-joint50 mixamorig:RightHandIndex2
-joint51 mixamorig:RightHandIndex3
-joint52 
-joint53 mixamorig:RightHandThumb1
-joint54 mixamorig:RightHandThumb2
-joint55 mixamorig:RightHandThumb3
-joint56 
-joint57 mixamorig:LeftUpLeg
-joint58 mixamorig:LeftLeg
-joint59 mixamorig:LeftFoot
-joint60 mixamorig:LeftToeBase
-joint61 
-joint62 mixamorig:RightUpLeg
-joint63 mixamorig:RightLeg
-joint64 mixamorig:RightFoot
-joint65 mixamorig:RightToeBase
-joint66 
-
-joint0 mixamorig:Hips
-joint1 mixamorig:Spine
-joint2 mixamorig:Spine1
-joint3 mixamorig:Spine2
-joint4 mixamorig:Neck
-joint5 mixamorig:Head
-joint6 mixamorig:HeadTop_End
-joint7 mixamorig:LeftEye
-joint8 mixamorig:RightEye
-joint9 mixamorig:LeftShoulder
-joint10 mixamorig:LeftArm
-joint11 mixamorig:LeftForeArm
-joint12 mixamorig:LeftHand
-joint13 mixamorig:LeftHandThumb1
-joint14 mixamorig:LeftHandThumb2
-joint15 mixamorig:LeftHandThumb3
-joint16 mixamorig:LeftHandThumb4
-joint17 mixamorig:LeftHandIndex1
-joint18 mixamorig:LeftHandIndex2
-joint19 mixamorig:LeftHandIndex3
-joint20 mixamorig:LeftHandIndex4
-joint21 mixamorig:LeftHandMiddle1
-joint22 mixamorig:LeftHandMiddle2
-joint23 mixamorig:LeftHandMiddle3
-joint24 mixamorig:LeftHandMiddle4
-joint25 mixamorig:LeftHandRing1
-joint26 mixamorig:LeftHandRing2
-joint27 mixamorig:LeftHandRing3
-joint28 mixamorig:LeftHandRing4
-joint29 mixamorig:LeftHandPinky1
-joint30 mixamorig:LeftHandPinky2
-joint31 mixamorig:LeftHandPinky3
-joint32 mixamorig:LeftHandPinky4
-joint33 mixamorig:RightShoulder
-joint34 mixamorig:RightArm
-joint35 mixamorig:RightForeArm
-joint36 mixamorig:RightHand
-joint37 mixamorig:RightHandPinky1
-joint38 mixamorig:RightHandPinky2
-joint39 mixamorig:RightHandPinky3
-joint40 mixamorig:RightHandPinky4
-joint41 mixamorig:RightHandRing1
-joint42 mixamorig:RightHandRing2
-joint43 mixamorig:RightHandRing3
-joint44 mixamorig:RightHandRing4
-joint45 mixamorig:RightHandMiddle1
-joint46 mixamorig:RightHandMiddle2
-joint47 mixamorig:RightHandMiddle3
-joint48 mixamorig:RightHandMiddle4
-joint49 mixamorig:RightHandIndex1
-joint50 mixamorig:RightHandIndex2
-joint51 mixamorig:RightHandIndex3
-joint52 mixamorig:RightHandIndex4
-joint53 mixamorig:RightHandThumb1
-joint54 mixamorig:RightHandThumb2
-joint55 mixamorig:RightHandThumb3
-joint56 mixamorig:RightHandThumb4
-joint57 mixamorig:LeftUpLeg
-joint58 mixamorig:LeftLeg
-joint59 mixamorig:LeftFoot
-joint60 mixamorig:LeftToeBase
-joint61 mixamorig:LeftToe_End
-joint62 mixamorig:RightUpLeg
-joint63 mixamorig:RightLeg
-joint64 mixamorig:RightFoot
-joint65 mixamorig:RightToeBase
-joint66 mixamorig:RightToe_End
+2022-06-24 09:11:29.322 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 0 , mixamorig:Hips
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 1 , mixamorig:Spine
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 2 , mixamorig:Spine1
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 3 , mixamorig:Spine2
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 4 , mixamorig:Neck
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 5 , mixamorig:Head
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 6 , mixamorig:LeftShoulder
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 7 , mixamorig:LeftArm
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 8 , mixamorig:LeftForeArm
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 9 , mixamorig:LeftHand
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 10 , mixamorig:LeftHandThumb1
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 11 , mixamorig:LeftHandThumb2
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 12 , mixamorig:LeftHandThumb3
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 13 , mixamorig:LeftHandIndex1
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 14 , mixamorig:LeftHandIndex2
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 15 , mixamorig:LeftHandIndex3
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 16 , mixamorig:LeftHandMiddle1
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 17 , mixamorig:LeftHandMiddle2
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 18 , mixamorig:LeftHandMiddle3
+2022-06-24 09:11:29.323 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 19 , mixamorig:LeftHandRing1
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 20 , mixamorig:LeftHandRing2
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 21 , mixamorig:LeftHandRing3
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 22 , mixamorig:LeftHandPinky1
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 23 , mixamorig:LeftHandPinky2
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 24 , mixamorig:LeftHandPinky3
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 25 , mixamorig:RightArm
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 26 , mixamorig:RightForeArm
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 27 , mixamorig:RightHand
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 28 , mixamorig:RightHandPinky1
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 29 , mixamorig:RightHandPinky2
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 30 , mixamorig:RightHandPinky3
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 31 , mixamorig:RightHandRing1
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 32 , mixamorig:RightHandRing2
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 33 , mixamorig:RightHandRing3
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 34 , mixamorig:RightHandMiddle1
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 35 , mixamorig:RightHandMiddle2
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 36 , mixamorig:RightHandMiddle3
+2022-06-24 09:11:29.324 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 37 , mixamorig:RightHandIndex1
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 38 , mixamorig:RightHandIndex2
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 39 , mixamorig:RightHandIndex3
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 40 , mixamorig:RightHandThumb1
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 41 , mixamorig:RightHandThumb2
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 42 , mixamorig:RightHandThumb3
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 43 , mixamorig:LeftLeg
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 44 , mixamorig:LeftFoot
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 45 , mixamorig:LeftToeBase
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 46 , mixamorig:RightUpLeg
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 47 , mixamorig:RightLeg
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 48 , mixamorig:RightFoot
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 49 , mixamorig:RightToeBase
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 50 , mixamorig:RightShoulder
+2022-06-24 09:11:29.325 16811-17007/com.irisview.irisxr I/IRIS-INFO: LJX bone : 51 , mixamorig:LeftUpLeg

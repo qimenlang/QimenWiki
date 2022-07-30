@@ -19,5 +19,7 @@
      - apt-file search xxx
      - 安装上一步返回的查询结果
 
-9. 
+9. vscode
+   - 代码格式化：Ctrl+Shift+I
 
+10. 
