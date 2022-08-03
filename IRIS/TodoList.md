@@ -23,4 +23,11 @@
 4. 输出动画接口
 
 5. 学习unity 动画系统
+   1. https://docs.unity3d.com/462/Documentation/Manual/MecanimAnimationSystem.html
+
+   2. https://docs.unity3d.com/cn/current/Manual/AnimationOverview.html
+
+   3. https://zhuanlan.zhihu.com/p/37995835
+
+6. 
 
