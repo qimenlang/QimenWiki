@@ -1,12 +1,24 @@
 1. 探索IRIS图形引擎debug方式
+   - 编译、debug
    - IRIS编辑器视口
+
 2. 搭建动画系统
    - 骨骼动画
    - 动画控制
+   - 混合树
    - 动画状态机
-3. 资源层搭建
+   - 动画后处理
+   - BlendShape动画
+   - 基于物理的动画
+
+3. 场景序列化
    - 场景管理
-   - 资源管理
+
+4. 粒子系统搭建
+
+5. 物理系统搭建
+
+   
 
 ## 7-8月OKR 
 
@@ -19,9 +31,7 @@
    - 状态机、数据驱动
    - 物理检测 + IK后处理
    - Attachment
-
 4. 输出动画接口
-
 5. 学习unity 动画系统
    1. https://docs.unity3d.com/462/Documentation/Manual/MecanimAnimationSystem.html
 
@@ -29,5 +39,11 @@
 
    3. https://zhuanlan.zhihu.com/p/37995835
 
-6. 
+6. 粒子系统
+
+
+
+
+
+
 
