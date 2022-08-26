@@ -201,8 +201,12 @@
    - 混合与时间无关，只与权重有关
      - Sampler：sample(ratio)
      - BlendSpace:blend(weight)
+   - 二维混合的泛化
+     - delaunay ？？
+     - 简单三次一维混合？？
+   - 一维混合的泛化：可以设置坐标
 3. 子状态机架构设计
-4. 二维混合的泛化
+4. 
 
 
 
