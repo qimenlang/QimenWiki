@@ -189,6 +189,25 @@
 1. 调研物理引擎
 2. 补齐动画接口使用说明 readme
 
+8/24
+
+1. Unity中复刻quest2手势，掌握原理
+   - 打通ouclus 原工程 ： mask 权重是如何控制的？
+   - 新制作的fbx 大量无关骨骼，无初始姿态
+
+2. 混合树架构设计
+   - Sampler不该继承BlendSpace
+   - _dt不该作为全局时钟
+   - 混合与时间无关，只与权重有关
+     - Sampler：sample(ratio)
+     - BlendSpace:blend(weight)
+   - 二维混合的泛化
+     - delaunay ？？
+     - 简单三次一维混合？？
+   - 一维混合的泛化：可以设置坐标
+3. 子状态机架构设计
+4. 
+
 
 
 

@@ -21,7 +21,7 @@
    - btGhostObject : 特殊的碰撞物体，在本地碰撞查询中有用；
    - btCollisionWorld ：碰撞世界，保存了所有碰撞物体，提供查询接口；
 2. 宽相碰撞检测相关的加速数据结构：
-   - btDbvtBroadphase 
+   - btDbvtBroadphase : 基于AABB的BVH树，两个，一个管理静态物体，一个管理动态物体,物体可以在两棵树之间移动；
    - btAxisSweep3 / bt32BitAxisSweep3 :实现3D扫描和修剪
    - btSimpleBroadphase :
 3. 碰撞形状
@@ -59,7 +59,16 @@
 
    以上所有的刚体都会被加入btDiscreteDynamicsWorld，并被指定碰撞形状；碰撞形状可以被用来计算质量分布（也叫惯性张量）；
 
-3. 
+3. 刚体的transform就是其质心的transform，该transform不能scale\shear；
+
+4. MotionState
+
+   - 管理物体的位置信息
+   - 插值：bullet自动对物体的运动进行插值
+
+5. 物体被用来做动画时，要取消其物理模拟；
+
+6. 物理模拟系统以60fps的固定帧率运行，渲染系统的帧率大于60，则去物理模拟结果时需要插值，小于60,则每渲染一帧，会运行多于一次模拟；
 
 
 
