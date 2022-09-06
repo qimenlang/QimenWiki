@@ -182,8 +182,6 @@
 4. ASSIMP加载FBX通用性测试
 5. 代码review\合并\提交
 
-
-
 8/20
 
 1. 调研物理引擎
@@ -203,14 +201,42 @@
      - BlendSpace:blend(weight)
    - 二维混合的泛化
      - delaunay ？？
-     - 简单三次一维混合？？
    - 一维混合的泛化：可以设置坐标
+
 3. 子状态机架构设计
-4. 
 
+   
 
+8/31
 
+1. 提升效率
+2. 优化assimp解析FBX到ozz数据格式模块
+   - 目前临时使用全部解析所有noded的方案，解决部分fbx（手、APP 3D图标模型）不适配问题； DONE
+   - 多mesh 动画不同步问题：
+   - 部分FBX文件在模型加载阶段，崩；
+3. 动画模块重构Skeleton数据冗余问题及解决scaleFactor影响动画效果问题；
+   - 不同模型的scaleFactor不同，1，100；
+4. 完成动画混合空间混合树架构；
+5. 二维混合泛化
+   - 使用delaunay三角刨分+重心坐标计算权重；
+   - OR 逆双线性插值 https://iquilezles.org/articles/ibilinear/
+   - OR 暂时简单泛化+双线性插值，只支持矩形；
 
+6. 完善动画模块状态机优化
+   - 支持设置状态转换条件，替换表格驱动的状态机；
+   - 支持子状态机，及状态机之间转换；
+   - 支持设置动画参数
+
+7. 在unity或unreal 100% 复刻ouculus手势；
+8. irisengine中100%复刻ouculus手势；
+9. 完成动画模块使用文档及example readme；
+10. 参照UE4\Unity现有动画系统使用流程，完善动画系统；
+11. 动画接口升级
+
+9/6 
+
+- Maskblend优化 20%
+- 动画接口优化 20%
 
 
 

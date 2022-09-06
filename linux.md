@@ -22,6 +22,6 @@
 9. vscode
    - 代码格式化：Ctrl+Shift+I
 
-10. zip解壓縮 unzip
+10. zip解压缩 unzip
 
 11. 

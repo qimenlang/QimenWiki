@@ -1,9 +1,10 @@
-试用期OKR
+## 试用期OKR
 
-1. 探索IRIS图形引擎debug方式及完成客户端界面
+1. IRIS基础建设
 
-   - 编译、debug：提升效率
+   - vscode+cmake 编译、debug irisengine
    - IRIS编辑器视口:用于展示成果
+   - 搭建Cache2自动化单元测试框架
 
 2. 场景序列化
 
@@ -21,9 +22,6 @@
 4. 粒子系统搭建
 
 5. 物理系统搭建
-
-   - a
-   - 
 
    
 
@@ -76,19 +74,8 @@
 #### 搭建物理系统
 
 1. Bullet3 MultiBody example复刻到irisengine
-2. 
 
-
-
-
-
-
-
-
-
-
-
-## 8-9月OKR
+## 9-10月OKR
 
 
 
