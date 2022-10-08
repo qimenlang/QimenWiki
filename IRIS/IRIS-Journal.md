@@ -205,8 +205,6 @@
 
 3. 子状态机架构设计
 
-   
-
 8/31
 
 1. 提升效率
@@ -216,8 +214,8 @@
    - 部分FBX文件在模型加载阶段，崩；
 3. 动画模块重构Skeleton数据冗余问题及解决scaleFactor影响动画效果问题；
    - 不同模型的scaleFactor不同，1，100；
-4. 完成动画混合空间混合树架构；
-5. 二维混合泛化
+4. 完成动画混合空间混合树架构 DONE
+5. 二维混合泛化  DONE
    - 使用delaunay三角刨分+重心坐标计算权重；
    - OR 逆双线性插值 https://iquilezles.org/articles/ibilinear/
    - OR 暂时简单泛化+双线性插值，只支持矩形；
@@ -225,7 +223,7 @@
 6. 完善动画模块状态机优化
    - 支持设置状态转换条件，替换表格驱动的状态机；
    - 支持子状态机，及状态机之间转换；
-   - 支持设置动画参数
+   - 支持设置动画参数  DONE
 
 7. 在unity或unreal 100% 复刻ouculus手势；
 8. irisengine中100%复刻ouculus手势；
@@ -233,12 +231,42 @@
 10. 参照UE4\Unity现有动画系统使用流程，完善动画系统；
 11. 动画接口升级
 
-9/6 
+9/19
 
-- Maskblend优化 20%
-- 动画接口优化 20%
+1. irisengine动画接口及BUG修改
+   - PlayAnimation接口修改 DONE
+   - 多submesh模型，各submesh动画不同步问题 DONE
+   - irisengine 加载FBX大量测试
+2. 动画系统升级
+   - 重新实现状态机
+   - 支持状态转换条件设置
+   - 代码整理、重构、移植
+3. 动画系统demo输出
+   - ouculus手势完全复刻
+   - 输出一个完整展现动画系统功能的demo
+4. irisengine 编译配置、debug、窗口
 
+9/26
 
+1. 重新修改提供动画接口
+   - createAnimationController 默认静止
+   - 返回Controller智能指针
+   - 动画事件回调
+   - 保证动画不支持时，不崩
+2. irisengine 加载FBX大量测试
+3. 动画播放完事件
+4. BUG:加载模型崩溃的BUG
+5. SceneObject、Actor管理：参照Unreal 、ogre、godot，进行优化
+6. irisengine 编译配置、debug、窗口
+7. OZZ预编译
+
+9/27
+
+1. 实现刚体层级动画
+   - 
+2. BUG
+   - snow.fbx  加载崩
+3. 
 
 
 

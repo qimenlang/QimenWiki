@@ -18,10 +18,14 @@
    - 用法：
      - apt-file search xxx
      - 安装上一步返回的查询结果
-
 9. vscode
    - 代码格式化：Ctrl+Shift+I
-
 10. zip解压缩 unzip
-
-11. 
+11. adb调试
+    - 手机重启之后：adb root  \  adb remount
+    - adb install -t IrisUISample.apk  测试版
+    - adb uninstall com.irisview.irisxr 卸载
+    - adb shell am start -s com.irisview.irisxr/.MainActivity   启动
+    - adb shell am force-stop com.irisview.irisxr  关闭
+    - adb forward tcp:8081 tcp:8081     [http://localhost:8081](http://localhost:8081/)
+    - 
