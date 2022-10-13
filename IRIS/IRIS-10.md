@@ -26,7 +26,6 @@ BUG排查
 - 在Android上没有NEON指令集支持，数学计算会回退；
 - NEON指令集是ARM版本的SIMD（**Single Instruction Multiple Data**），即单指令多数据；
 - android设备CPU架构：arm64-v8a、armeabi？？
-- 
 
 2.动画采样耗时长，为什么帧率不降？降了帧率，只要还高于24帧，就应该还是流畅的；
 
@@ -37,3 +36,7 @@ BUG排查
 - 对动画限定帧数，尤其美术制作时不再多个动画放在同一个动画里；
 - 减少动画节点数，不将所有node全部作为骨骼；
 - 对动画数据进行优化，ozz::animation::offline::AnimationOptimizer
+
+10.13
+
+1. 
