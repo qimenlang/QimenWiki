@@ -25,7 +25,7 @@
     - 手机重启之后：adb root  \  adb remount
     - adb install -t IrisUISample.apk  测试版
     - adb uninstall com.irisview.irisxr 卸载
-    - adb shell am start -s com.irisview.irisxr/.MainActivity   启动
+    - adb shell am start com.irisview.irisxr/.MainActivity   启动
     - adb shell am force-stop com.irisview.irisxr  关闭
     - adb forward tcp:8081 tcp:8081     [http://localhost:8081](http://localhost:8081/)
     - 
