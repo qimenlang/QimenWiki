@@ -15,28 +15,21 @@
    - 碰撞检测
    - 刚体运动模拟
 
-10.8
+10.17 -22
 
+1. 动画接口规范
+   - 同时支持骨骼动画、刚体动画 DONE
+   - node节点可以设置transform,先set local transform 再计算skinning matrix DONE
+   - 骨骼、动画资源管理
 
+2. 手势动画接入
+   - 代码移植：混合空间、状态机、参数设置
+   - 对接inputmanager测试
 
-BUG排查
+3. 动画全面测试
 
-1.动画越长，越播到后面，卡顿越严重：动画采样在Android上成为性能瓶颈，且耗时线性增长；同样的动画，在linux的demo上，不会出现越来越卡顿的现象，动画采样耗时不会增长；
+   - 10000 node 刚体和骨骼动画测试
+   - 全面测试以往所有FBX动画
 
-- 在Android上没有NEON指令集支持，数学计算会回退；
-- NEON指令集是ARM版本的SIMD（**Single Instruction Multiple Data**），即单指令多数据；
-- android设备CPU架构：arm64-v8a、armeabi？？
+   
 
-2.动画采样耗时长，为什么帧率不降？降了帧率，只要还高于24帧，就应该还是流畅的；
-
-3.应该给动画更新留多少时间？才能保证不掉帧？
-
-4.根本解决方法是，解决sample_job在安卓上性能瓶颈的问题，目前解决不了；缓解该问题的方式有：
-
-- 对动画限定帧数，尤其美术制作时不再多个动画放在同一个动画里；
-- 减少动画节点数，不将所有node全部作为骨骼；
-- 对动画数据进行优化，ozz::animation::offline::AnimationOptimizer
-
-10.13
-
-1. 
