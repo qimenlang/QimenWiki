@@ -45,7 +45,17 @@
    8. 走通filament渲染管线,三个开关对渲染管线的影响；
    9. irisengine渲染管线
 
-5. 
+5. Avatar Demo
+   - 表情用morph target 还是骨骼；//可能不需要
+
+   - iris demo正常播放avatar动画
+     - 动画数据问题
+   
+     - 
+   
+   - 
+   
+6. 
 
 
 
