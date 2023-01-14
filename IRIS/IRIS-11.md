@@ -32,28 +32,16 @@
 4. 阴影显示不正确问题
 
    1. rendermanager  windowmanager  irisengine : renderable
-   2. asw\
+   2. asw
    3. multiview：阴影正确显示过
    4. matc:只要把我们的mat材质放到filament demo中，效果正确，就说明材质没问题；
    5. 阴影在IBL时从来不显示，在无IBL时偶尔显示；计算错误；
-   6. 怎么看shadow map
-   7. 比较深度时，一直返回等于？导致没有阴影？
+   6. 怎么看shadow map ： 抓帧
+   7. 比较深度时，一直返回等于？导致没有阴影？：shadow map是纯黑的；
    8. 走通filament渲染管线,三个开关对渲染管线的影响；
    9. irisengine渲染管线
-
+   
 5. 
 
 
-
-
-
-
-
-
-
-BUG:
-
-1. scale是否应该应用到动画
-2. 书页穿模问题重现
-3. 基于事件更新蒙皮矩阵，一个矩阵会被更新两次
 
