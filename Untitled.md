@@ -1,27 +1,73 @@
-​        auto animation_object = irisengine::ModelLoader::load("/sdcard/iris/Walk.fbx");
+​    auto addSphere = [&](const glm::vec3& v){
 
-​        if(animation_object){
+​        auto sphere = SceneObject::create();
 
-​            animation_object->setName("WalkingMan");
+​        sphere->setName("sphere");
 
-​            animation_object->setParent(s_scene);
+​        sphere->setPosition(v);
 
-​            auto skel_com = animation_object->getComponent<irisengine::Skeleton>();
+​        sphere->setScale(glm::vec3{0.8});
 
-​            if(skel_com){
+​        sphere->setRotation(glm::quat(glm::radians(glm::vec3{30.f, 30.f, 0})));
 
-​                auto controller = skel_com->playAnimation("mixamo.com");
+​        auto sgeo = SphereGeometry::getDefault();
 
-​                if (controller) {
+​        sphere->addComponent(Renderable::create({{sgeo, mat}}));
 
-​                    controller->setPlaybackSpeed(3.0);
+​        auto sphereRenderable = sphere->getComponent<Renderable>();
 
-​                    controller->pause();
+​        sphereRenderable->setCastShadows(true);
 
-​                    controller->resume();
+​        sphere->setParent(scene);        
 
-​                }
+​    };
 
-​            }
 
-​        } 
+
+​    addSphere({0.0,0.0,-0.0});
+
+​    addSphere({1.0,0.0,-0.0});
+
+​    addSphere({2.0,0.0,-0.0});
+
+​    addSphere({3.0,0.0,-0.0});
+
+​    addSphere({4.0,0.0,-0.0});
+
+
+
+
+
+​    addSphere({0.0,1.0,-0.0});
+
+​    addSphere({0.0,2.0,-0.0});
+
+​    addSphere({0.0,3.0,-0.0});
+
+​    addSphere({0.0,4.0,-0.0});
+
+
+
+​    addSphere({0.0,0.0,-1.0});
+
+​    addSphere({0.0,0.0,-2.0});
+
+​    addSphere({0.0,0.0,-3.0});
+
+​    addSphere({0.0,0.0,-4.0});
+
+​    addSphere({0.0,0.0,-5.0});
+
+​    addSphere({0.0,0.0,-6.0});
+
+​    addSphere({-1.0,0.0,-7.0});
+
+
+
+​    addSphere({1.0,1.0,-0.0});
+
+​    addSphere({2.0,2.0,-0.0});
+
+​    addSphere({3.0,3.0,-0.0});
+
+​    addSphere({4.0,4.0,-0.0});
