@@ -4,4 +4,7 @@
    - [repo命令参考](https://source.android.com/setup/develop/repo)
    - [repo教程](https://blog.51cto.com/u_14347056/2398039)
    - [repo新建分支](https://blog.csdn.net/k663514387/article/details/110090886)
-2. 
+
+
+
+repo forall -pvc git status
