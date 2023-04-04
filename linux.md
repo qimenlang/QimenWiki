@@ -43,8 +43,6 @@
     - adb shell pm clear com.irisview.irisxr  
     - adb shell dumpsys battery
     
-    
-    
 12. 内存
 
     watch -n 1 adb shell dumpsys meminfo com.irisview.irisxr
