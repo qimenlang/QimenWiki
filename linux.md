@@ -20,7 +20,7 @@
 7. 工程调试
    - core 下运行 ./gradlew assembleDebug --debug  查看编译细节
    - ./scripts/makepush.ps1 debug arm64 -pl
-   
+
 8. apt-file
    - 用于查看缺少的某个文件属于哪个依赖库、包
    - 用法：
@@ -42,9 +42,7 @@
     - adb forward tcp:8081 tcp:8081     [http://localhost:8081/](http://localhost:8081/)
     - adb shell pm clear com.irisview.irisxr  
     - adb shell dumpsys battery
-    
-    
-    
+
 12. 内存
 
     watch -n 1 adb shell dumpsys meminfo com.irisview.irisxr
@@ -56,6 +54,10 @@
     如果release 版本，不会打印出任何信息
 
 14. 
+
+15. 
+
+16. 左右
 
     
 
