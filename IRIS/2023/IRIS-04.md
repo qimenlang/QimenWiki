@@ -62,15 +62,18 @@
 
 5. 手势手柄功能通用、体验类似、切换方便
 
-6. occulus手势方案调研
+6. 研究quest occulus手势方案
 
-   - TouchGrab
-   - Transformer
-   - Poke
+   - 学习Interaction SDK相关文档，使用Interaction SDK在unity中实现Poke、Grib、Pinch手势交互效果，借鉴Interactor/iteractable实现；
+   - TouchGrabExamples 
+   
+7. ozz-animation作为外部库，在服务器编译；
 
-7. 
 
 
+TODO：
+
+- 优化动画clip获取方式，目前只能手动组合
 
 
 
