@@ -42,7 +42,8 @@
     - adb forward tcp:8081 tcp:8081     [http://localhost:8081/](http://localhost:8081/)
     - adb shell pm clear com.irisview.irisxr  
     - adb shell dumpsys battery
-
+    - ./scripts/core/graphics_core_build.sh  编译 compositor
+    
 12. 内存
 
     watch -n 1 adb shell dumpsys meminfo com.irisview.irisxr
