@@ -54,15 +54,17 @@
 
     如果release 版本，不会打印出任何信息
 
-14. 
-
-15. 
-
-16. 左右
-
-    
 
 
+1.仅使用关节点的rotation数据，驱动iris的手模型，存在整体变形的问题：
+
+![Screenshot_from_2023-05-16_13-44-56](/uploads/079a87d2f5586a920f98baf05358a3a4/Screenshot_from_2023-05-16_13-44-56.png)
+
+2.使用关节点的rotation+position数据，驱动iris手模型，并且对iris手模型重新刷权重，每个关节点影响的mesh顶点范围尽可能的大，得到如下效果：
+
+- proximal关节处还存在变形
+- ![Screenshot_from_2023-05-24_21-07-01](/uploads/8db0eb3112abfecb187ac76dc06daf18/Screenshot_from_2023-05-24_21-07-01.png)
+-   -- 在爱奇艺设备中实时驱动，存在拇指与中指、无名指、小指无法捏合的问题且整体效果存在变形；
 
 
 
