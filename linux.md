@@ -69,4 +69,12 @@
     readelf -S libassimp.so | grep debug
 
     如果release 版本，不会打印出任何信息
+    
+    
+
+16.編譯UISAMPLE ： /Work/iris/sdk/web/uisample$ ./gradlew assembleDebug
+
+
+
+
 
