@@ -67,42 +67,56 @@
 
 1. Drag&Drop流程
 
-   - 普通Drag事件触发，且操作对象为支持draggable 的2D UI或3D SceneObject，则触发DragBegin事件；
-   -  draggable对象封装为数据包对象，该对象同时产生缩略图和状态图；
-   - 数据包对象跟随Cursor移动；
-   - Hover到DragTarget对象时，触发DragOver事件[包括DragEnter、DragOver、DragLeave]，影响视觉反馈；
-   - 在DragTarget对象上释放Item，触发Drop事件，根据操作方向确定操作类型，处理数据包对象包；
+   - **Drag事件触发**，且操作对象为支持draggable 的2D UI或3D SceneObject，则触发DragStart事件；
+     - 操作对象为interactable，则触发普通drag事件；
+     - 操作对象为draggable , 则触发drag&drop流程的DragStart事件；
+   - **封装数据包**，将draggable对象或传输数据 封装为数据包对象，该对象同时产生缩略图和状态图；
+     - DragStart事件触发，构建数据包，在dragSource上触发;
+     - DragEnd 事件触发，在dragSource上触发，例如move时，在drag Source 上删除item；
+     - 数据包内容：传输数据、缩略图、状态图；
+   - **处理DragOver事件**： 数据包对象跟随Cursor移动，Hover到DragTarget对象时，触发DragOver事件[包括DragEnter、DragOver、DragLeave]，影响视觉反馈；
+   - 在DropTarget对象上释放dragged element，触发Drop事件，根据操作方向确定操作类型，处理数据包对象包；
+     - Drop事件触发，消费数据包；
+2. 相关事件 
 
-2. Draggable & DropTarget（非必须）
+   - DragStart : 发生在drag source，生成数据包。
+     - 由使用方通过DragStart回调函数指定数据包的操作方式、数据包内容等； 
+   - DragEnter、DragOver、DragLeave : 发生在drop target
+     - 使用方通过DragEnter回调函数，修改状态图样式；
+   - Drop : 发生在drop target ,真正处理数据包
+     - 
+   - DropCompeleted : 发生在drag source，例如move时，在drag Source 上删除item；
+3. 事件参数:
 
-   - 同时支持2D UI和3D SceneObject **OR** 2D UI添加属性、3D SceneObjecy 添加component
+   - DragStartingEventArgs
+   - DragEventArgs 
+     - GetDeferral() ： 获取异步对象，支持异步拖放操作。
+   - DropCompletedEventArgs 
+     - DropResult
+     - Original Source
+4. Draggable & DropTarget（非必须）
+
+   - 2D UI添加canDrag、allowDrop属性、3D SceneObject 添加dragable component 、dropTarget component ；
    - 没有DropTarget时，操作类型为open；有DropTarget，操作类型为Copy/Move
+5. 操作类型：None/ Copy / Move / Open 
 
-3. 操作类型：Copy / Move / Open 
+   - 操作类型由drag source 指定，或者通过draggable设定；
 
-   - 操作类型由操作方向类型
+     - Open 操作只在2DUI --> 3D 空间时发生； 如何确定一个UI Element的 Drag Operation是 Open 而不是 Copy；
+6. DataPackage： 包含需要传输的数据
 
-4. 操作方向&默认操作类型
-
-   - 方案1:
-     - Window --> Server [Move]
-     - Server --> Client [Move]
-     - Client A --> Client B [Copy]
-     - Client --> Self [Move]
-     - Server --> Self [Move]  ，存在的问题：drop到Server打开的Item,是否应该和3D SceneObject区分；OR 原本存在与Server上的 3D SceneObject 不能触发Drag&Drop操作；
-   - 方案2:
-     - UI --> NoneUI  [Open]
-     - UI --> UI [Copy]
-     - NoneUI --> UI [Move]
-     - NoneUI --> NoneUI [Move]
-
-   Client Window作为最外层的DragTarget , Client Window内部的UI View 组件也可以是DragTarget。
-
-5. Visual FadeBack
-
-6. 其他支持
+   - 支持哪几种数据类型、格式 ？ txt、modelPath、sceneobject、png；
+   - 由drag Source 直接生成，发送给drop target ;也可以使用一个代理来生成 [ 适用于不立即传输，直到drop target请求数据时传输的情况 ];
+   - DataPackageView : DataPackage的只读版本，drop target收到该对象，使用该对象包含的信息，获取传输的数据；
+   - DataPackage填充数据，DataPackageView获取数据；
+7. Visual FadeBack
+8. 其他支持
 
    - 弹簧加载
    - 同时支持多个Drag & Drop活动，一个Drag操作可以打包多个不同类型的对象，一个Drop Target可以同时响应多个drop事件；
 
-7. 
+
+
+### Drap&Drop实现
+
+1. 

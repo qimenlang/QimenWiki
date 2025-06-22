@@ -40,12 +40,21 @@
     - adb shell am force-stop com.irisview.irisxr  关闭
     - adb shell setenforce 0 vr每次重新开机之后输入
     - adb forward tcp:8081 tcp:8081     [http://localhost:8081/](http://localhost:8081/)
-    - adb shell pm clear com.irisview.irisxr  
+    - adb shell pm clear com.irisview.irisxr  清除irisxr程序cache的数据
     - adb shell dumpsys battery
     - ./scripts/core/graphics_core_build.sh  编译 compositor
     - ./scripts/makepush.ps1 release arm64 -m g -p -sh "am start -S com.irisview.irisxr/.MainActivity" -r window  编译+替换+运行
     - adb shell su 0 pm list packages 获取应用包名
-
+    - adb shell getprop | grep ro.product.build.type 获取rom版本
+    - adb shell am start com.android.settings 连接wifi
+    - watch -n 0.5 adb shell cat /sys/class/kgsl/kgsl-3d0/gpu_busy_percentage  gpu占用
+    - adb shell atrace -t 5 -b 80960 -z gfx input view wm sm am audio hal res power pm ss database aidl sched freq idle sync ion memreclaim -a com.irisview.irisxr -o /sdcard/trace.html     抓trace
+    - priority_tool priority tid rt 99 设置线程优先级到最高 []
+    - du -a ./ | sort -n -r | head -n 20  磁盘最大文件
+    - adb shell "input keyevent 223" 灭屏指令
+    
+    
+    
 12. 手势
 
     - YVR手势开关 ：  adb shell setprop persist.tracking.hand.enable true
@@ -60,6 +69,10 @@
 
     ./scripts/makepush.ps1 release arm64 -pl
 
+    addr2line -Cfe xxx.so 00000000001bef84
+
+    查找so，按时间排序：find -name libirisui.so -print0| xargs -0 stat --format '%Y:%y %n' | sort -n
+
 14. 内存
 
     watch -n 1 adb shell dumpsys meminfo com.irisview.irisxr
@@ -69,12 +82,52 @@
     readelf -S libassimp.so | grep debug
 
     如果release 版本，不会打印出任何信息
-    
-    
 
 16.編譯UISAMPLE ： /Work/iris/sdk/web/uisample$ ./gradlew assembleDebug
 
+17.repo 
+
+​	repo 多git 指令
+
+​	repo forall -c "git rev-parse --show-toplevel && git status"
+
+18.android 模块编译
+
+​	./scripts/core/android_deploy_build.sh 
+
+19.log转换    **清理控制字符并转换**
+
+使用 `tr` 或 `sed` 过滤不可见字符：
+
+```
+cat 0317_1538.log | tr -cd '\11\12\15\40-\176' | iconv -f ASCII -t UTF-8//IGNORE > output_utf8.txt
+```
+
+- **作用**：
+  - `tr -cd ...`：仅保留 ASCII 可打印字符（空格、换行符、常规文本）。
+  - `iconv`：二次清理非 UTF-8 字符。
+- **适用场景**：文件包含大量控制字符（如终端日志）。
 
 
 
+
+
+
+
+vr Launcher start open app
+
+
+
+
+
+20号的rom开始 加上了SAR sensor+ 眼动双重检测息屏亮屏功能，可以通过
+
+adb root
+
+adb remount
+
+adb shell setprop persist.sar.screencontrol 0
+adb shell setprop persist.eyedetect.enable 0 
+
+命令来关闭该检测
 
