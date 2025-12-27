@@ -6,9 +6,7 @@ CRTP 的实现基本上是一个类模板，它使用派生类本身作为基类
 
 下面是一个C++版本的CRTP的最佳实践：
 
-```
-
-```
+ 
 
 ```c++
 template<typename Derived> 

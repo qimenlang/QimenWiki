@@ -1,19 +1,18 @@
-```c++
-const auto geo = CubeGeometry::create();
-    auto object = SceneObject::create();
-    auto mat = BasicMaterial::create(BasicMaterial::Property::Transparent)->defaultInstance()->duplicate();
-    auto renderable = object->addComponent<Renderable>(Renderable::PrimitiveList{{geo, mat}});
-    renderable->primitives()[0].material->setParameter("baseColor", color);
-    object->setParent(parent);
-```
+**国籍** ： 中国
+**出生日期** ：1992.03.1.0
+**婚姻状况**：已婚
+**现居住地址（区县-详细地址-邮政编码）** ： 北京市昌平区 东小口镇佳运园5号楼4单元431号  *102200* 
+**身份证地址（省份-城市-区县-邮政编码）**：北京市昌平区 东小口镇佳运园5号楼4单元431号  *102200* 
+**教育经历 ** ：2011.8-2015.6 哈尔滨工程大学 计算机科学与技术学院 本科
+**身份证（号码-签发日期-到期日期-签发机构）** 
+**招商银行卡号** ： 6214 8575 5296 5685
 
+**首次参加工作日期**  2015.08
 
+**离职证明** 
 
+**家庭概况** 庄白燕  夫妻
 
+**紧急联系人  关系-姓名-电话**  夫妻  庄白燕  13661168733
 
-1
-
-
-
-
-
+**身份证正反面，体检报告**

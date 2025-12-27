@@ -1,1 +1,0 @@
-https://gpp.tkchu.me/state.html
