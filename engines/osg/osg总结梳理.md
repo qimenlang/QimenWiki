@@ -46,4 +46,23 @@
    // 3. 卸载远离的瓦片
    ```
 
-   
+
+### 四、渲染顺序
+
+1. 渲染顺序
+
+   ```glsl
+   Frame start
+   │
+   ├── PRE_RENDER Cameras   
+   │
+   ├── MAIN CAMERA
+   │   ├── Opaque
+   │   ├── TransparentBin（深度排序 + blend）
+   │
+   ├── POST_RENDER Cameras  
+   │
+   └── Frame end
+   ```
+
+2.  **同一个 RenderOrder + 同一个 orderNum** 下：**Camera 的执行顺序，等于它们被加入渲染图（SceneGraph）时的遍历顺序**

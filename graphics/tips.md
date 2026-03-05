@@ -3,3 +3,5 @@ MRT 中的每个 attachment，只要被启用，就必须在 fragment shader 中
 GBuffer 只能描述“第一个不透明表面”；
 
 Blend 永远作用在“当前绑定 FBO 的 color attachment0”上。
+
+location=0 会被映射到“第一个 active draw buffer”，
