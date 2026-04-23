@@ -7,12 +7,12 @@
 
 ## 核心架构
 
-1. ##### System（系统）：类似一个“粒子场景”
+1. #### System（系统）：类似一个“粒子场景”
 
    - 粒子系统的顶层容器
    - 管理多个 Group
 
-2. **Group（粒子组）**
+2. #### **Group（粒子组）**
 
    - 一组具有相同属性的粒子
    - 每个 Group 有：
@@ -22,7 +22,7 @@
 
    比如：火焰组、烟雾组
 
-3. ##### **Emitter（发射器）**：控制粒子“从哪里来”
+3. #### **Emitter（发射器）**：控制粒子“从哪里来”
 
    常见类型：
 
@@ -37,16 +37,87 @@
    - 初始速度
    - 初始方向
 
-4. **Modifier（修改器 ）：控制粒子“怎么动”，类似物理力系统**
+4. #### **Modifier（修改器 ）：控制粒子“怎么动”，类似物理力系统**
 
-   例如：
+   **每个 Modifier 只访问和修改自己关心的粒子属性**，且修改是基于**上一个 Modifier 处理后的结果**进行的累积叠加，因此不会冲突；
 
-   - 重力（Gravity）
-   - 风（Wind）
-   - 阻力（Friction）
-   - 旋转
+   `Modifiers` 是每帧更新粒子状态的“力/约束/事件”模块，常见用于：
 
-5. ##### **Renderer（渲染器）**：负责“怎么画出来”
+   - 改速度：重力、摩擦、点质量场
+   - 做碰撞：粒子-粒子、粒子-区域
+   - 做生命周期事件：进区即销毁、附着发射器联动生成
+
+   其中 `Destroyer`、`Obstacle` 继承 `ZonedModifier`，支持 zone test（inside/outside/intersect/enter/leave）。
+
+   ------
+
+   ##### 各 Modifier 速查
+
+   - `Gravity`（`SPK_BasicModifiers.h`）
+     - 作用：给粒子施加恒定加速度向量（可随节点变换得到 transformed value）。
+     - 场景：雨滴下落、烟雾上升、风场基础偏移。
+     - 效果：速度线性累积，轨迹呈抛物/偏移趋势。
+   - `Friction`（`SPK_BasicModifiers.h`）
+     - 作用：速度阻尼（按系数衰减）。
+     - 场景：让粒子逐渐停下、减少“无限滑行”。
+     - 效果：运动更“粘滞”，速度随时间衰减。
+   - `PointMass`（`SPK_PointMass.h`）
+     - 作用：点质量场，按距离平方影响粒子（带 offset 防止奇点）。
+     - 场景：黑洞吸引、爆炸后斥力、轨道扰动。
+     - 效果：向心/离心弯曲轨迹；`mass>0` 吸引，`mass<0` 排斥。
+   - `Collider`（`SPK_Collider.h`）
+     - 作用：粒子与粒子之间碰撞，考虑粒子尺寸和质量比，带弹性系数。
+     - 场景：球团互撞、颗粒堆积、碰撞演示。
+     - 效果：速度交换/反弹；`elasticity` 控制“弹”还是“粘”。
+     - 代价：计算重，粒子数大时开销显著（文档明确提醒）。
+   - `Obstacle`（`SPK_Obstacle.h`，继承 `ZonedModifier`）
+     - 作用：粒子与 zone 几何边界碰撞反弹。
+     - 场景：盒子/平面/球壳内反弹、地面碰撞。
+     - 效果：按法线反射并施加切向摩擦；`bouncingRatio` 控制反弹强度，`friction` 控制切向耗散。
+     - zone test：常用 `ZONE_TEST_INTERSECT` 做碰撞触发。
+   - `Destroyer`（`SPK_Destroyer.h`，继承 `ZonedModifier`）
+     - 作用：满足 zone 条件即 kill 粒子（初始化和每帧都会检查）。
+     - 场景：出界清理、进入黑洞即消失、裁剪体积。
+     - 效果：硬删除粒子，快速控制数量与边界。
+   - `EmitterAttacher`（`SPK_EmitterAttacher.h`）
+     - 作用：给每个粒子附一个 emitter，向目标 group 发射新粒子；可选跟随朝向/旋转。
+     - 场景：拖尾、火花尾迹、子弹尾烟、母粒子派生子粒子。
+     - 效果：粒子“带着发射器移动”，形成层级粒子效果（非常常用的二级特效构建器）。
+   - `Rotator`（`SPK_Rotator.h`）
+     - 作用：根据 `PARAM_ROTATION_SPEED` 积分更新 `PARAM_ANGLE`。
+     - 场景：贴图粒子自旋（火花、碎片、叶片）。
+     - 效果：角度连续变化；要求模型启用角度/旋转速度参数。
+
+   ------
+
+   ##### ZonedModifier 的关键点（影响 `Obstacle/Destroyer`）
+
+   在 `SPK_ZonedModifier.h` 里，zone test 有：
+
+   - `INSIDE` / `OUTSIDE` / `INTERSECT` / `ENTER` / `LEAVE` / `ALWAYS`
+
+   可理解为“触发条件选择器”：
+
+   - 想做“进入区域触发一次”用 `ENTER`
+   - 想做“相交就碰撞”用 `INTERSECT`
+   - 想做“在区域内持续销毁”用 `INSIDE`
+
+   ------
+
+   ##### 组合建议（常见配方）
+
+   - 基础自然运动：`Gravity + Friction`
+   - 容器碰撞：`Obstacle (+ Friction)`
+   - 颗粒互撞：`Collider`（注意粒子规模）
+   - 边界回收：`Destroyer`
+   - 尾迹/子系统：`EmitterAttacher`
+   - 贴图旋转感：`Rotator`
+
+5. #### **Interpolator**：插值器，通常是一种特殊的Modifier，根据粒子生命周期进度插值改变某个属性（如颜色、大小）
+
+6. 
+
+7. #### **Renderer（渲染器）**：负责“怎么画出来”
 
    SPARK 本身提供一些基础实现：
 
@@ -56,7 +127,7 @@
 
    但通常需要自己写 shader + 渲染路径
 
-6. **Model（模型）：定义粒子的“属性结构”，相当于“粒子模板”**
+8. **Model（模型）：定义粒子的“属性结构”，相当于“粒子模板”**
 
    - 生命周期（life）
    - 大小（size）
@@ -144,11 +215,21 @@
      - 曲线编辑：实现size over lifetime、alpha over lifetime
      - 实时反馈
 
-3. 
 
 
+## 粒子设计Tip
 
-### 其他：
+1. ##### 分层粒子（Layered Particle System）
+
+   ```
+   控制层（Simulation Layer）
+       ↓
+   表现层（Render Layer）
+   ```
+
+2. 
+
+## 其他：
 
 - **Spark 粒子系统的“资产”** 通常指一个粒子效果的完整配置（发射器、修改器、渲染器的参数组合），保存为 `.spark` 或 `.spk` 文件。使用 Spark 官方自带的 **Spark Editor**（也叫 Spark Particle Editor）
 
