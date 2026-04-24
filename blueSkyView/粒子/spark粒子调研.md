@@ -37,6 +37,8 @@
    - 初始速度
    - 初始方向
 
+   
+
 4. #### **Modifier（修改器 ）：控制粒子“怎么动”，类似物理力系统**
 
    **每个 Modifier 只访问和修改自己关心的粒子属性**，且修改是基于**上一个 Modifier 处理后的结果**进行的累积叠加，因此不会冲突；
@@ -113,9 +115,39 @@
    - 尾迹/子系统：`EmitterAttacher`
    - 贴图旋转感：`Rotator`
 
-5. #### **Interpolator**：插值器，通常是一种特殊的Modifier，根据粒子生命周期进度插值改变某个属性（如颜色、大小）
+5. #### 粒子参数Para: 有5个参数（Group中），在ParaInterpolator控制其数值变化，在modifier中最终使用；
 
-6. 
+   - Scale
+   - Mass
+   - Angle
+   - TextureIndex
+   - RotationSpeed
+
+   ```c++
+     // Param
+   #define SPK_ENUM_PARAM(XX)     \         
+   XX(PARAM_SCALE,=0)             \    
+   XX(PARAM_MASS,=1)              \  
+   XX(PARAM_ANGLE,=2)             \  
+   XX(PARAM_TEXTURE_INDEX,=3)     \     
+   XX(PARAM_ROTATION_SPEED,=4)	   \
+   ```
+
+   
+
+6. #### **ParaInterpolator**：参数插值器，对粒子的某些属性（如颜色、大小），根据粒子生命周期进度插值改变属性，或在“初始化时”赋值；
+
+   1. DefaultInitializer：只做 固定初值，存活过程中 不随时间改；
+
+   2. SimpleInterpolator：出生值、消亡值 各一个常量，整组粒子共用；粒子存活期间在这两个端点之间 随能量（energy）线性变化；
+
+   3. RandomInitializer：诞生时在 `[min, max)` 内 随机一次，之后 不变（`interpolate` 为空）。
+
+   4. RandomInterpolator：每个粒子在诞生时随机一对 “起点值”和“终点值”，存活期间仍按 energy 在两者之间 线性插值（和 `SimpleInterpolator` 一样是“两端线性”，但两端 按粒子随机）。
+
+   5. GraphInterpolator：用 二维折线/分段曲线 控制参数：横轴 `x` 来自 寿命、年龄、另一参数、或速度平方；纵轴在图上的 y0 / y1 两曲线 之间再按每个粒子固定的随机比例混合，得到最终值。支持 循环图、对横轴的 随机 offset/scale（每粒子一份，存在 `DataSet`）。
+
+      
 
 7. #### **Renderer（渲染器）**：负责“怎么画出来”
 
